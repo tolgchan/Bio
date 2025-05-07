@@ -5,57 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tolg-chan</title>
     <style>
+ 
         body {
             margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
+            background: url('https://i.postimg.cc/hvq1GVhQ/5cf4f04182b1f898c254c84829d363dd.jpg') center center / cover no-repeat;
+            color: white;
+        }
+
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            min-height: 100vh;
+            padding: 20px;
             text-align: center;
         }
-
-        .background-header {
-            background-image: url('https://i.postimg.cc/hvq1GVhQ/5cf4f04182b1f898c254c84829d363dd.jpg'); /* رابط الجزء العلوي من الخلفية */
-            background-size: cover;
-            background-position: center;
-            height: 250px; /* يمكنك تعديل الارتفاع حسب ما تراه مناسبًا */
-            width: 100%;
+     
+        .main-text {
+            font-size: 40px;
+            margin-top: 50px;
         }
-
-        .profile-container {
-            background-color: #222;
-            margin: -80px auto 20px;
-            padding: 5px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            width: 90%;
-            max-width: 700px;
-            z-index: 1;
-            position: relative;
+        .subtitle {
+            font-size: 20px;
+            margin-bottom: 50px;
         }
-   
-        .profile-img {
-            width: 150px;
+        .profile-card {
+            background-color: #1e1e1e;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+        }
+      
+        .profile-header {
+            display: flex;
+            align-items: center;
+        }
+        .avatar {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            margin-bottom: 20px;
+            margin-right: 15px;
+            background: url('https://i.postimg.cc/MphMxqnv/IMG-20240908-WA0006.jpg/150') center center / cover no-repeat;
         }
-
-        h1 {
-            margin: 10px 0;
+        .profile-name {
+            font-size: 24px;
+            font-weight: bold;
         }
-
-        p {
+        .profile-name2 {
+            font-size: 18px;
+            font-weight: bold;
+        }        
+        .profile-username {
+            font-size: 14px;
+            color: #aaa;
+        }
+        .about-me {
+            margin-top: 20px;
+        }
+        .about-me p {
             margin: 5px 0;
+        }
+        .link {
+            color: #00bfff;
+            text-decoration: none;
+        }
+        .member-since {
+            margin-top: 10px;
+            font-size: 12px;
             color: #aaa;
         }
 
-        .top-text {
-            text-align: center; /* النصوص العلوية في المنتصف */
-        }
-
-        .bottom-text {
-            text-align: left; /* النصوص السفلية محاذاة لليسار */
-        }
+    
 
         .button-container {
             display: flex;
@@ -77,7 +99,7 @@
         }
 
         .button-link:hover {
-            background-color: #555;
+            background-color: #1c3ca7;
         }
 
         .discord-icon {
@@ -87,6 +109,7 @@
         }
 
         .link-container {
+           
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -95,7 +118,7 @@
         }
 
         .link-box {
-            background-color: #333;
+            background-color: #272525;
             padding: 15px 20px;
             border-radius: 10px;
             display: flex;
@@ -108,7 +131,7 @@
         }
 
         .link-box:hover {
-            background-color: #444;
+            background-color: #4d3ea7;
         }
 
         .icon {
@@ -136,86 +159,91 @@
 <body>
 
 <div class="background-header"></div>
-
-<div class="profile-container">
-    <img src="https://i.postimg.cc/MphMxqnv/IMG-20240908-WA0006.jpg/150" alt="Profile Picture" class="profile-img">
-    <h1>Tolg-chan</h1>
-    <h3>僕│𝐌𝐨𝐡𝐚𝐦𝐞𝐝-𝐄𝐡𝐚𝐛〆🇵🇸™</h3>
-
-    <div class="top-text">
-        <p>🇪🇬  Mohamedehab - Egypt - alMansora 🇵🇸</p>
-    </div>
-    <p>‎</p>
-    <div class="top-text">
-        <p>✧✧✧✧✧✧✧𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿✧✧✧✧✧✧✧</p>
-        <p>‎</p>
-        <p>  Professional bot developer, professional server builder, professional server administrator and Python developer</p>
-        <p>‎</p>
-        <p>✧✧✧✧✧✧✧𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿✧✧✧✧✧✧✧</p>
-        <p><a href="https://discord.gg/77QhFydswF">https://discord.gg/Tolg-chan.bot</a></p>
+<div class="overlay">
+    <div class="main-text">星が燃えるまで</div>
+    <div class="subtitle">until the stars burn ツ</div>
+    <div class="profile-card">
+        <div class="profile-header">
+            <div class="avatar"></div>
+            <div>
+                <div class="profile-name">僕 | Mohamed-Ehab ✘™</div>
+                <div class="profile-username">mohamedehab600 • Software Engineer™ & Developer | R</div>
+            </div>
+        </div>
         
+        <div class="about-me">
+            <p>👑 Tolg-chan</p>
+            <p>💻 Developer</p>
+            <p>🚀 Hey! I’m Mohamed Ehab!</p>
+            <p>💥 CTO, Head of Admin @ AVATAR Assistant</p>
+            <p>🌍 Regular & Lifetime @ Discord</p>
+            <p>🔗 <a class="link" href="https://tolgchan.github.io/Bio/" target="_blank">https://tolgchan.github.io/Bio/</a></p>
+        </div>
+        <div class="member-since">👥 Member Since: Jan 21, 2019</div>
+        <div class="button-container">
+            <!-- رابط إلى صفحة ديسكورد -->
+            <a href="https://discord.gg/77QhFydswF" class="button-link">
+                <img src="https://logodownload.org/wp-content/uploads/2017/11/discord-logo-1-1.png" alt="Discord" class="discord-icon">
+                Discord
+            </a>
+            <!-- رابط إلى صفحة بوت -->
+     
+        </div>  
+    </div>
+    <body>
+        <div class="overlay">
+            <div class="profile-card">
+                <div class="profile-name2">🌍 about-me</div>
+                
+                <div class="member-since">Professional bot developer, professional server builder, professional server administrator and Python developer</div>
+
+            </div>
+            <div class="link-container">
+                <a href="https://discord.gg/77QhFydswF" class="link-box">
+                    <img src="https://logodownload.org/wp-content/uploads/2017/11/discord-logo-1-1.png" alt="Mohamed-Ehab" class="icon">
+                    Mohamed-Ehab
+                </a>
+                <a href="https://www.instagram.com/mohamed_ehab600/profilecard/?igsh=MW53Nmk4amg1b2V1Ng==" class="link-box">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/800px-Instagram_logo_2016.svg.png?20210403190622" alt="#SaveHypeSquad" class="icon">
+                    Mohamed-Ehab
+                </a>
+            </div>
+            <div class="link-container">
+                <a href="https://open.spotify.com/user/31g7dy2daiclsprfcoznxd2mhgpa" class="link-box">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/512px-Spotify_icon.svg.png?20220821125323" alt="Guild Archive" class="icon">
+                    Mohamed-Ehab
+                </a>
+                <a href="https://github.com/Mohamed-Ehab600" class="link-box">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/640px-GitHub_Invertocat_Logo.svg.png" alt="#SaveHnnypeSquad" class="icon">
+                    Mohamed-Ehab
+                </a>
+            </div>
+            <div class="link-container">
+                <a href="https://x.com/Mohamed_ehab600" class="link-box">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/X_logo_2023.svg/640px-X_logo_2023.svg.png" alt="Guild Archive" class="icon">
+                    Mohamed-Ehab
+                </a>
+                <a href="https://www.youtube.com/channel/UCWRmNu-e0bvVb5Hu7Y0gxyg" class="link-box">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/YouTube_social_white_circle_%282017%29.svg/640px-YouTube_social_white_circle_%282017%29.svg.png" alt="#SaveHypeSquad" class="icon">
+                    Mohamed-Ehab
+                </a>
+            </div>
+        </div>
     </div>
 
-    <div class="button-container">
-        <!-- رابط إلى صفحة ديسكورد -->
-        <a href="https://discord.gg/77QhFydswF" class="button-link">
-            <img src="https://logodownload.org/wp-content/uploads/2017/11/discord-logo-1-1.png" alt="Discord" class="discord-icon">
-            Discord
-        </a>
-        <!-- رابط إلى صفحة بوت -->
- 
-    </div>
-</div>
+    <footer>
+        <p>© 2024 Tolg-chan. All Rights Reserved.</p>
+        <p>The site was designed entirely by Mohamed Ehab. It is not permitted to be used without permission.</p>
+    </footer>
 
-<div class="link-container">
-    <a href="https://discord.gg/77QhFydswF" class="link-box">
-        <img src="https://logodownload.org/wp-content/uploads/2017/11/discord-logo-1-1.png" alt="Mohamed-Ehab" class="icon">
-        Mohamed-Ehab
-    </a>
-    <a href="https://www.instagram.com/mohamed_ehab600/profilecard/?igsh=MW53Nmk4amg1b2V1Ng==" class="link-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/800px-Instagram_logo_2016.svg.png?20210403190622" alt="#SaveHypeSquad" class="icon">
-        Mohamed-Ehab
-    </a>
-</div>
-<div class="link-container">
-    <a href="https://open.spotify.com/user/31g7dy2daiclsprfcoznxd2mhgpa" class="link-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/512px-Spotify_icon.svg.png?20220821125323" alt="Guild Archive" class="icon">
-        Mohamed-Ehab
-    </a>
-    <a href="https://github.com/Mohamed-Ehab600" class="link-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/640px-GitHub_Invertocat_Logo.svg.png" alt="#SaveHnnypeSquad" class="icon">
-        Mohamed-Ehab
-    </a>
-</div>
+    </body>
+    
+    
 
 
 
-<div class="link-container">
-    <a href="https://x.com/Mohamed_ehab600" class="link-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/X_logo_2023.svg/640px-X_logo_2023.svg.png" alt="Guild Archive" class="icon">
-        Mohamed-Ehab
-    </a>
-    <a href="https://www.youtube.com/channel/UCWRmNu-e0bvVb5Hu7Y0gxyg" class="link-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/YouTube_social_white_circle_%282017%29.svg/640px-YouTube_social_white_circle_%282017%29.svg.png" alt="#SaveHypeSquad" class="icon">
-        Mohamed-Ehab
-    </a>
-</div>
-<div class="content">
-    <h1>‎</h1>
-    <p>‎</p>
-    <p>‎</p>
-    <h1>‎</h1>
-  
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-</div>
-<footer>
-    <p>© 2024 Tolg-chan. All Rights Reserved.</p>
-    <p>The site was designed entirely by Mohamed Ehab. It is not permitted to be used without permission.</p>
-</footer>
+
+
+
 </body>
 </html>
