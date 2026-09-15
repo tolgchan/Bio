@@ -1,251 +1,377 @@
+
+
+
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tolg-chan</title>
     <style>
- 
-        body {
+        /* Base & Reset */
+        * {
+            box-sizing: border-box;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: url('https://i.postimg.cc/hvq1GVhQ/5cf4f04182b1f898c254c84829d363dd.jpg') center center / cover no-repeat;
-            color: white;
+            padding: 0;
         }
 
-
-        .overlay {
-            background-color: rgba(0, 0, 0, 0.7);
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://i.postimg.cc/hvq1GVhQ/5cf4f04182b1f898c254c84829d363dd.jpg') center center / cover no-repeat fixed;
+            color: #ffffff;
             min-height: 100vh;
-            padding: 20px;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
         }
-     
+
+        /* Overlay Layout */
+        .overlay {
+            background: rgba(10, 10, 15, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        /* Titles */
         .main-text {
-            font-size: 40px;
-            margin-top: 50px;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            margin-top: 10px;
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            animation: fadeIn 1.2s ease-in-out;
         }
+
         .subtitle {
-            font-size: 20px;
-            margin-bottom: 50px;
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            margin-bottom: 30px;
+            color: #b9bbbe;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
         }
+
+        /* Profile Container */
+        .profile-container {
+            width: 100%;
+            max-width: 650px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        /* Card Modern Style */
         .profile-card {
-            background-color: #1e1e1e;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            border-radius: 10px;
+            background: rgba(30, 31, 34, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
             text-align: left;
+            direction: ltr; /* Keeping content readable for EN mix */
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-      
+
+        .profile-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+        }
+
         .profile-header {
             display: flex;
             align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
         }
+
         .avatar {
-            width: 60px;
-            height: 60px;
+            width: 75px;
+            height: 75px;
             border-radius: 50%;
-            margin-right: 15px;
-            background: url('https://i.postimg.cc/MphMxqnv/IMG-20240908-WA0006.jpg/150') center center / cover no-repeat;
+            background: url('https://i.postimg.cc/MphMxqnv/IMG-20240908-WA0006.jpg') center center / cover no-repeat;
+            border: 3px solid #5865f2;
+            box-shadow: 0 0 15px rgba(88, 101, 242, 0.5);
+            flex-shrink: 0;
         }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
         .profile-name {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
         }
+
         .profile-name2 {
-            font-size: 18px;
-            font-weight: bold;
-        }        
-        .profile-username {
-            font-size: 14px;
-            color: #aaa;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #5865f2;
+            margin-bottom: 8px;
         }
+
+        .profile-username {
+            font-size: 0.88rem;
+            color: #b9bbbe;
+            word-break: break-word;
+        }
+
+        /* Badges */
+        .badges {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 6px;
+            flex-wrap: wrap;
+        }
+
+        .badges img {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            transition: transform 0.2s ease;
+        }
+
+        .badges img:hover {
+            transform: scale(1.2);
+        }
+
+        /* About Section */
         .about-me {
             margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
+
         .about-me p {
-            margin: 5px 0;
+            margin: 6px 0;
+            color: #dcddde;
         }
+
         .link {
             color: #00bfff;
             text-decoration: none;
+            word-break: break-all;
+            transition: color 0.2s;
         }
+
+        .link:hover {
+            text-decoration: underline;
+            color: #33ccff;
+        }
+
         .member-since {
-            margin-top: 10px;
-            font-size: 12px;
-            color: #aaa;
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: #949ba4;
         }
 
-    
-
+        /* Buttons & Link Grid */
         .button-container {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 12px;
+            margin-top: 15px;
+            flex-wrap: wrap;
         }
 
         .button-link {
-            background-color: #333;
-            border: 1px solid #555;
-            padding: 10px 20px;
-            border-radius: 10px;
+            background-color: #5865f2;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 8px;
             text-decoration: none;
             color: #fff;
             display: flex;
             align-items: center;
-            transition: 0.3s;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(88, 101, 242, 0.4);
         }
 
         .button-link:hover {
-            background-color: #1c3ca7;
+            background-color: #4752c4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.6);
         }
 
         .discord-icon {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             margin-right: 10px;
+            filter: brightness(0) invert(1);
         }
 
         .link-container {
-           
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            width: 100%;
+            margin-top: 5px;
         }
 
         .link-box {
-            background-color: #272525;
-            padding: 15px 20px;
+            background: rgba(43, 45, 49, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 12px 16px;
             border-radius: 10px;
             display: flex;
             align-items: center;
             color: #fff;
             text-decoration: none;
-            transition: 0.3s;
-            width: 100%;
-            max-width: 300px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            direction: ltr;
+            transition: all 0.3s ease;
         }
 
         .link-box:hover {
-            background-color: #4d3ea7;
+            background-color: #4752c4;
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
 
         .icon {
-            width: 32px;
-            height: 32px;
-            margin-right: 10px;
-        }
-        .badges {
-            margin-top: 3px;
-        }
-        .badges img {
-            width: 20px;
-            height: 20px;
-            margin-right: -3px;
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            object-fit: contain;
+            flex-shrink: 0;
         }
 
+        /* Footer */
         footer {
-            position: n;
-            bottom: 0;
             width: 100%;
-            background-color: #111; /* لون داكن */
-            padding: 4px 0; /* رفيع */
+            background-color: rgba(10, 10, 12, 0.95);
+            padding: 15px 10px;
             text-align: center;
-            font-size: 10px; /* خط صغير */
-            color: #ccc; /* لون النص */
+            font-size: 0.75rem;
+            color: #80848e;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            line-height: 1.5;
         }
 
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-
-        
+        /* Responsive Adjustments */
+        @media (max-width: 480px) {
+            .overlay {
+                padding: 20px 12px;
+            }
+            .profile-card {
+                padding: 16px;
+            }
+            .avatar {
+                width: 60px;
+                height: 60px;
+            }
+            .profile-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .link-container {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
 
-<div class="background-header"></div>
-<div class="overlay">
-    <div class="main-text">星が燃えるまで</div>
-    <div class="subtitle">until the stars burn ツ</div>
-    <div class="profile-card">
-        <div class="profile-header">
-            <div class="avatar"></div>
-            <div>
-                <div class="profile-name">僕 | Mohamed-Ehab〆™</div>
-                <div class="profile-username">mohamedehab600 • Software Engineer™ & Developer | R</div>
-                <div class="badges">
-                    <img src="https://raw.githubusercontent.com/mezotv/discord-badges/d27a6354e9945c5440dc170dfacf05591f180897/assets/hypesquadbrilliance.svg" alt="Badge1">
-                    <img src="https://raw.githubusercontent.com/mezotv/discord-badges/d27a6354e9945c5440dc170dfacf05591f180897/assets/activedeveloper.svg" alt="Badge2">
-		            <img src="https://raw.githubusercontent.com/mezotv/discord-badges/d27a6354e9945c5440dc170dfacf05591f180897/assets/discordbotdev.svg" alt="Badge5">
-                    <img src="https://raw.githubusercontent.com/mezotv/discord-badges/refs/heads/main/assets/username.png" alt="Badge3">
-		    		<img src="https://raw.githubusercontent.com/mezotv/discord-badges/7228546b5ad48561eee7c88d193304f133d52058/assets/orb.svg" alt="Badge7">
-                    <img src="https://raw.githubusercontent.com/mezotv/discord-badges/refs/heads/main/assets/quest.png" alt="Badge4">
-                    
-                   
+    <div class="overlay">
+        <div class="main-text">星が燃えるまで</div>
+        <div class="subtitle">until the stars burn ツ</div>
 
+        <div class="profile-container">
+            <!-- Main Profile Card -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="avatar"></div>
+                    <div class="profile-info">
+                        <div class="profile-name">僕 | Mohamed-Ehab〆™</div>
+                        <div class="profile-username">mohamedehab600 • Software Engineer™ & Developer | R</div>
+                        <div class="badges">
+                            <img src="https://raw.githubusercontent.com/mezotv/discord-badges/d27a6354e9945c5440dc170dfacf05591f180897/assets/hypesquadbrilliance.svg" alt="Badge1">
+                            <img src="https://raw.githubusercontent.com/mezotv/discord-badges/d27a6354e9945c5440dc170dfacf05591f180897/assets/activedeveloper.svg" alt="Badge2">
+                            <img src="https://raw.githubusercontent.com/mezotv/discord-badges/d27a6354e9945c5440dc170dfacf05591f180897/assets/discordbotdev.svg" alt="Badge5">
+                            <img src="https://raw.githubusercontent.com/mezotv/discord-badges/refs/heads/main/assets/username.png" alt="Badge3">
+                            <img src="https://raw.githubusercontent.com/mezotv/discord-badges/7228546b5ad48561eee7c88d193304f133d52058/assets/orb.svg" alt="Badge7">
+                            <img src="https://raw.githubusercontent.com/mezotv/discord-badges/refs/heads/main/assets/quest.png" alt="Badge4">
+                        </div>
+                    </div>
                 </div>
+
+                <div class="about-me">
+                    <p>PUBG M Game Investigator @ Tencent Games</p>
+                    <p>Available daily 10:00 to 3:00 (EST)</p>
+                    <p>- https://discord.gg/pubgm-mena</p>
+                    <p></p>
+                    <p>🥀 Angel, Tolgchan</p>
+                    <p>💻 Developer & Admin </p>
+                    <p>✨ Hey! I'm Mohamed Ehab!</p>
+                    <p>🚀 CTO, Dev @ AVATAR Assistant</p>
+                    <p>💖 Dev @ PANBAN BOT</p>
+                    <p>🛡 Investigator @ PUBG MOBILE</p>
+                    <p>🔗 <a class="link" href="https://tolgchan.github.io/Bio/" target="_blank">https://tolgchan.github.io/Bio/</a></p>
+                </div>
+
+                <div class="member-since">👥 Member Since: Jan 21, 2019</div>
+
+                <div class="button-container">
+                    <a href="https://discord.gg/h4Taeye4pM" target="_blank" class="button-link">
+                        <img src="https://logodownload.org/wp-content/uploads/2017/11/discord-logo-1-1.png" alt="Discord" class="discord-icon">
+                        Discord
+                    </a>
+                </div>  
             </div>
-        </div>
-        
-        <div class="about-me">
-			<p>PUBG M Game Investigator @ Tencent Games</p>
-			<p>Available daily 10:00 to 3:00 (EST)</p>
-			<p>- https://discord.gg/pubgm-mena</p>
-			<p></p>
-            <p>🥀 Angel, Tolgchan</p>
-            <p>💻 Developer & Admin </p>
-            <p>✨ Hey! I'm Mohamed Ehab!</p>
-            <p>🚀 CTO, Dev @ AVATAR Assistant</p>
-			<p>💖 Dev @ PANBAN BOT</p>
-            <p>🛡 Investigator @ PUBG MOBILE</p>
-            <p>🔗 <a class="link" href="https://tolgchan.github.io/Bio/" target="_blank">https://tolgchan.github.io/Bio/</a></p>
-        </div>
-        <div class="member-since">👥 Member Since: Jan 21, 2019</div>
-        <div class="button-container">
-            <!-- رابط إلى صفحة ديسكورد -->
-            <a href="https://discord.gg/h4Taeye4pM" class="button-link">
-                <img src="https://logodownload.org/wp-content/uploads/2017/11/discord-logo-1-1.png" alt="Discord" class="discord-icon">
-                Discord
-            </a>
-            <!-- رابط إلى صفحة بوت -->
-     
-        </div>  
-    </div>
-    <body>
-        <div class="overlay">
+
+            <!-- About Me Secondary Card -->
             <div class="profile-card">
                 <div class="profile-name2">🌍 about-me</div>
-                
-                <div class="member-since">Professional bot developer, professional server builder, professional server administrator and Python developer</div>
+                <div class="member-since" style="margin-top: 0; font-size: 0.9rem; color: #dcddde;">
+                    Professional bot developer, professional server builder, professional server administrator and Python developer
+                </div>
+            </div>
 
-            </div>
+            <!-- Social Links Container -->
             <div class="link-container">
-                <a href="https://discord.gg/h4Taeye4pM" class="link-box">
-                    <img src="https://logodownload.org/wp-content/uploads/2017/11/discord-logo-1-1.png" alt="Mohamed-Ehab" class="icon">
+                <a href="https://discord.gg/h4Taeye4pM" target="_blank" class="link-box">
+                    <img src="https://logodownload.org/wp-content/uploads/2017/11/discord-logo-1-1.png" alt="Discord" class="icon">
                     Mohamed-Ehab
                 </a>
-                <a href="https://www.instagram.com/mohamed_ehab600/profilecard/?igsh=MW53Nmk4amg1b2V1Ng==" class="link-box">
-                    <img src="https://imgs.search.brave.com/dKJYYjMmOnLiGGQOKipbkULit5KAU-cq7BESCzb1emk/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/aWNvbnNjb3V0LmNv/bS9pY29uL2ZyZWUv/cG5nLTI1Ni9mcmVl/LWluc3RhZ3JhbS1s/b2dvLWljb24tc3Zn/LWRvd25sb2FkLXBu/Zy0yNzQ1NDgzLnBu/Zz9mPXdlYnAmdz0x/Mjg" alt="#SaveHypeSquad" class="icon">
+                <a href="https://www.instagram.com/mohamed_ehab600/profilecard/?igsh=MW53Nmk4amg1b2V1Ng==" target="_blank" class="link-box">
+                    <img src="https://imgs.search.brave.com/dKJYYjMmOnLiGGQOKipbkULit5KAU-cq7BESCzb1emk/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/aWNvbnNjb3V0LmNv/bS9pY29uL2ZyZWUv/cG5nLTI1Ni9mcmVl/LWluc3RhZ3JhbS1s/b2dvLWljb24tc3Zn/LWRvd25sb2FkLXBu/Zy0yNzQ1NDgzLnBu/Zz9mPXdlYnAmdz0x/Mjg" alt="Instagram" class="icon">
                     Mohamed-Ehab
                 </a>
-            </div>
-            <div class="link-container">
-                <a href="https://open.spotify.com/user/31g7dy2daiclsprfcoznxd2mhgpa" class="link-box">
-                    <img src="https://imgs.search.brave.com/LuOftzuaxZhZtwnJxK8Vr_Lkmeg0rIigdyS0gMjneuA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/aWNvbnNjb3V0LmNv/bS9pY29uL2ZyZWUv/cG5nLTI1Ni9mcmVl/LXNwb3RpZnktaWNv/bi1zdmctZG93bmxv/YWQtcG5nLTE0MTM3/MTg3LnBuZz9mPXdl/YnAmdz0xMjg" alt="Guild Archive" class="icon">
+                <a href="https://open.spotify.com/user/31g7dy2daiclsprfcoznxd2mhgpa" target="_blank" class="link-box">
+                    <img src="https://imgs.search.brave.com/LuOftzuaxZhZtwnJxK8Vr_Lkmeg0rIigdyS0gMjneuA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/aWNvbnNjb3V0LmNv/bS9pY29uL2ZyZWUv/cG5nLTI1Ni9mcmVl/LXNwb3RpZnktaWNv/bi1zdmctZG93bmxv/YWQtcG5nLTE0MTM3/MTg3LnBuZz9mPXdl/YnAmdz0xMjg" alt="Spotify" class="icon">
                     Mohamed-Ehab
                 </a>
-                <a href="https://github.com/Mohamed-Ehab600" class="link-box">
-                    <img src="https://imgs.search.brave.com/N-DXsnPV03bRUU38wWhj8_HftpKDr4QOtgqaXDyLMeo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/aWNvbnNjb3V0LmNv/bS9pY29uL2ZyZWUv/cG5nLTI1Ni9mcmVl/LWdpdGh1Yi1pY29u/LXN2Zy1kb3dubG9h/ZC1wbmctMTkxMjAy/Ni5wbmc_Zj13ZWJw/Jnc9MTI4" alt="#SaveHnnypeSquad" class="icon">
+                <a href="https://github.com/Mohamed-Ehab600" target="_blank" class="link-box">
+                    <img src="https://imgs.search.brave.com/N-DXsnPV03bRUU38wWhj8_HftpKDr4QOtgqaXDyLMeo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/aWNvbnNjb3V0LmNv/bS9pY29uL2ZyZWUv/cG5nLTI1Ni9mcmVl/LWdpdGh1Yi1pY29u/LXN2Zy1kb3dubG9h/ZC1wbmctMTkxMjAy/Ni5wbmc_Zj13ZWJw/Jnc9MTI4" alt="GitHub" class="icon">
                     Mohamed-Ehab
                 </a>
-            </div>
-            <div class="link-container">
-
- 
             </div>
         </div>
     </div>
@@ -254,15 +380,6 @@
         <p>© 2024 Tolg-chan. All Rights Reserved.</p>
         <p>The site was designed entirely by Mohamed Ehab. It is not permitted to be used without permission.</p>
     </footer>
-
-    </body>
-    
-    
-
-
-
-
-
 
 </body>
 </html>
